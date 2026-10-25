@@ -1,0 +1,6 @@
+# robots.txt for Saharia Hassan Safin Portfolio
+User-agent: *
+Allow: /
+
+# Canonical Sitemap Location
+Sitemap: https://safin313-reborn.github.io/sitemap.xml

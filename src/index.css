@@ -1,0 +1,1971 @@
+@import url('https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --spotlight-x: 50%;
+    --spotlight-y: 50%;
+    --spotlight-opacity: 0;
+
+    /* Light Theme (Archival Editorial Ivory & Crisp Ink) */
+    --background: #fbfbfa;
+    --foreground: #121211;
+    --border: rgba(0, 0, 0, 0.10);
+    --border-hover: rgba(0, 0, 0, 0.22);
+    --accent: rgba(0, 0, 0, 0.04);
+    --accent-hover: rgba(0, 0, 0, 0.08);
+    --ring: #a67c00;
+    --muted-foreground: #66635c;
+
+    /* High-contrast ink typography for cream tokens in light mode */
+    --cream-rgb: 24 24 22;
+    --cream-light-rgb: 40 40 37;
+    --cream-muted-rgb: 85 83 78;
+    --cream-dark-rgb: 12 12 11;
+
+    /* High contrast rich antique gold */
+    --gold: #a67c00;
+    --gold-subtle: #7a5c00;
+    --gold-glow: rgba(166, 124, 0, 0.18);
+
+    /* Glass tokens in light mode */
+    --glass-surface: rgba(255, 255, 255, 0.85);
+    --glass-surface-hover: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(0, 0, 0, 0.09);
+    --glass-border-hover: rgba(0, 0, 0, 0.22);
+
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.09);
+    --spotlight-border: rgba(0, 0, 0, 0.18);
+
+    /* Theme-active pattern tokens for Architectural Philosophy */
+    --cyber-bg: #f8f7f4;
+    --cyber-vignette: rgba(0, 0, 0, 0.06);
+    --cyber-grid-primary: rgba(166, 124, 0, 0.15);
+    --cyber-grid-secondary: rgba(0, 0, 0, 0.045);
+
+    /* BMW Starlight Celestial Sky Tokens (Light Mode) */
+    --star-bg: #fbfbfa;
+    --star-bright: #b8860b;
+    --star-core: #a67c00;
+    --star-dim: rgba(166, 124, 0, 0.4);
+    --star-glow: rgba(166, 124, 0, 0.22);
+    --star-ambient: rgba(166, 124, 0, 0.035);
+  }
+
+  .dark {
+    /* Dark Theme (Pure Luxury Black & Warm Ivory) */
+    --background: #000000;
+    --foreground: #efeee9;
+    --border: rgba(255, 255, 255, 0.14);
+    --border-hover: rgba(255, 255, 255, 0.32);
+    --accent: rgba(255, 255, 255, 0.08);
+    --accent-hover: rgba(255, 255, 255, 0.16);
+    --ring: #d4af37;
+    --muted-foreground: #9e9b93;
+
+    --cream-rgb: 239 238 233;
+    --cream-light-rgb: 247 246 242;
+    --cream-muted-rgb: 158 155 147;
+    --cream-dark-rgb: 211 209 199;
+
+    --gold: #d4af37;
+    --gold-subtle: #c8aa6e;
+    --gold-glow: rgba(212, 175, 55, 0.2);
+
+    --glass-surface: rgba(255, 255, 255, 0.025);
+    --glass-surface-hover: rgba(255, 255, 255, 0.045);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-border-hover: rgba(255, 255, 255, 0.28);
+
+    --card-bg: rgba(255, 255, 255, 0.022);
+    --card-border: rgba(255, 255, 255, 0.10);
+    --spotlight-border: rgba(239, 238, 233, 0.28);
+
+    /* Theme-active pattern tokens for Architectural Philosophy */
+    --cyber-bg: #070707;
+    --cyber-vignette: rgba(0, 0, 0, 0.88);
+    --cyber-grid-primary: rgba(212, 175, 55, 0.15);
+    --cyber-grid-secondary: rgba(239, 238, 233, 0.05);
+
+    /* BMW Starlight Celestial Sky Tokens (Dark Mode) */
+    --star-bg: #000000;
+    --star-bright: #ffe685;
+    --star-core: #d4af37;
+    --star-dim: rgba(212, 175, 55, 0.5);
+    --star-glow: rgba(212, 175, 55, 0.5);
+    --star-ambient: rgba(212, 175, 55, 0.06);
+  }
+
+  html {
+    color-scheme: light dark;
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  [id], section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    background-color: #000000;
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+    background-color: #fbfbfa;
+  }
+
+  /* =========================================================================
+     BMW Starlight Micro-Celestial Sky (Multi-Cluster Blurred Starlight)
+     - Increased dot density with soft optical blur (filter: blur(0.45px))
+     - 5 asynchronous clusters running on prime-number cycles with phase delays
+     - Never shines up at the same time; smoothly breathes between 0% and 50% brightness
+     ========================================================================= */
+  .starlight-sky-bg,
+  .uiverse-tree-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--star-bg);
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--star-bg);
+    color: var(--foreground);
+    font-family: 'Helvetica Neue ME', Helvetica, Arial, sans-serif;
+    overflow-x: clip;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+  /* =========================================================================
+     Theme-Active Animated Editorial Grid Pattern (Adapted from Uiverse.io by sunn_2633)
+     Used on the Architectural Philosophy card with full light/dark theme adaptation
+     ========================================================================= */
+  .cyber-pattern {
+    width: 100%;
+    height: 100%;
+    background-color: var(--cyber-bg, #070707);
+    transition: background-color 0.4s ease;
+
+    background-image: 
+      radial-gradient(circle at center, transparent 30%, var(--cyber-vignette, rgba(0, 0, 0, 0.88)) 90%),
+      linear-gradient(var(--cyber-grid-primary, rgba(212, 175, 55, 0.15)) 1px, transparent 1px),
+      linear-gradient(90deg, var(--cyber-grid-primary, rgba(212, 175, 55, 0.15)) 1px, transparent 1px),
+      linear-gradient(var(--cyber-grid-secondary, rgba(239, 238, 233, 0.05)) 1px, transparent 1px),
+      linear-gradient(90deg, var(--cyber-grid-secondary, rgba(239, 238, 233, 0.05)) 1px, transparent 1px);
+
+    background-size:
+      100% 100%,
+      60px 60px,
+      60px 60px,
+      20px 20px,
+      20px 20px;
+
+    animation: cyber-move 10s linear infinite;
+  }
+
+  @keyframes cyber-move {
+    0% {
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+    }
+    100% {
+      background-position:
+        0 0,
+        60px 60px,
+        60px 60px,
+        40px 40px,
+        40px 40px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cyber-pattern {
+      animation: none;
+    }
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.25);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.45);
+  }
+}
+
+/* Circular Reveal View Transition for Theme Switching */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 99999;
+  animation: circular-reveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes circular-reveal {
+  from {
+    clip-path: circle(0px at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 1200px) at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 25px rgba(239, 238, 233, 0.2);
+  }
+  
+  .border-glass {
+    border-color: rgba(255, 255, 255, 0.10);
+  }
+
+  .border-glass-hover {
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .bg-glass {
+    background-color: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .bg-glass-strong {
+    background-color: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+  }
+
+  .neumorphic-card {
+    background: radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #050505;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .neumorphic-btn {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%), #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .neumorphic-btn:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 20px rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .neumorphic-btn:active {
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Marcus — Bennet Pixel-Faithful Entrance Animations */
+  @keyframes animFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes animRiseIn {
+    from {
+      opacity: 0;
+      transform: translateY(4vh) scale(1.03);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes animFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes animLine {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes marqueeScroll {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes marqueeScrollReverse {
+    from {
+      transform: translate3d(-50%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .anim-fade-in {
+    animation: animFadeIn 1.2s ease-out both;
+  }
+
+  .anim-rise-in {
+    animation: animRiseIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
+  }
+
+  .anim-fade-up {
+    animation: animFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .anim-line {
+    transform-origin: left;
+    animation: animLine 1.1s cubic-bezier(0.76, 0, 0.24, 1) 1200ms both;
+  }
+
+  .marquee {
+    animation: marqueeScroll 32s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee-reverse {
+    animation: marqueeScrollReverse 42s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-fade-in,
+    .anim-rise-in,
+    .anim-fade-up,
+    .anim-line {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0s !important;
+    }
+    .marquee,
+    .marquee-reverse {
+      animation-play-state: paused !important;
+    }
+  }
+
+  /* =========================================================================
+     UIVERSE FANNED GLASS CARDS DECK TRANSITION (by codebykay101 & Editorial)
+     ========================================================================= */
+  .fanned-deck-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px 16px;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .fanned-deck-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fanned-deck-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 420px;
+    padding: 40px 24px;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .fanned-deck-container .fanned-glass-card {
+    position: relative;
+    width: 230px;
+    height: 330px;
+    border-radius: 18px;
+    margin: 0 -45px;
+    transform-origin: bottom center;
+    transform: rotate(calc(var(--r, 0) * 1deg));
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    cursor: pointer;
+    will-change: transform, margin, box-shadow;
+  }
+
+  @media (max-width: 640px) {
+    .fanned-deck-container .fanned-glass-card {
+      width: 185px;
+      height: 275px;
+      margin: 0 -34px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .fanned-deck-container .fanned-glass-card {
+      width: 160px;
+      height: 245px;
+      margin: 0 -38px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .fanned-deck-container .fanned-glass-card {
+      width: 250px;
+      height: 355px;
+      margin: 0 -50px;
+    }
+  }
+
+  /* Hover or active spread: straighten and space cards out */
+  .fanned-deck-container:hover .fanned-glass-card,
+  .fanned-deck-container.is-spread .fanned-glass-card {
+    transform: rotate(0deg);
+    margin: 0 10px;
+  }
+
+  @media (min-width: 640px) {
+    .fanned-deck-container:hover .fanned-glass-card,
+    .fanned-deck-container.is-spread .fanned-glass-card {
+      margin: 0 14px;
+    }
+  }
+
+  /* Hover over an individual card: pops forward with lift, scale, and gold glow */
+  .fanned-deck-container .fanned-glass-card:hover {
+    transform: translateY(-24px) scale(1.06) rotate(0deg) !important;
+    z-index: 70 !important;
+    margin: 0 16px !important;
+  }
+
+  @media (min-width: 640px) {
+    .fanned-deck-container .fanned-glass-card:hover {
+      transform: translateY(-28px) scale(1.07) rotate(0deg) !important;
+      margin: 0 20px !important;
+    }
+  }
+
+  /* =========================================================================
+     UIVERSE NAVBAR SELECTION OUTLINE ANIMATION (by SelfMadeSystem & Editorial)
+     ========================================================================= */
+  .nav-selection-outline {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 9999px;
+    z-index: 0;
+  }
+
+  .nav-selection-outline svg.outline,
+  .nav-selection-outline svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .nav-selection-outline .rect,
+  .nav-selection-outline .nav-rect {
+    fill: transparent;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0 0 10 40 10 40;
+    stroke-width: 1.5;
+    transition: 0.5s;
+    animation: navRectTraveling 3.5s linear infinite;
+  }
+
+  @keyframes navRectTraveling {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 100;
+    }
+  }
+
+  .dark .nav-selection-outline .rect,
+  .dark .nav-selection-outline .nav-rect {
+    stroke: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 8px rgba(212, 175, 55, 0.35));
+  }
+
+  html:not(.dark) .nav-selection-outline .rect,
+  html:not(.dark) .nav-selection-outline .nav-rect {
+    stroke: #121211;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 6px rgba(166, 124, 0, 0.3));
+  }
+}
+
+/* =========================================================================
+   LIGHT THEME (WHITE / ARCHIVAL IVORY) EDITORIAL ADAPTATION RULES
+   Ensures 100% crystal-clear contrast, readable typography, and elevated cards
+   ========================================================================= */
+html:not(.dark) {
+  color-scheme: light;
+  background-color: #fbfbfa;
+}
+
+/* Primary heading & text overrides in light mode */
+html:not(.dark) .text-white {
+  color: #121211 !important;
+}
+html:not(.dark) .text-white\/95,
+html:not(.dark) .text-white\/90 {
+  color: #1a1a18 !important;
+}
+html:not(.dark) .text-white\/85,
+html:not(.dark) .text-white\/80 {
+  color: #2b2b27 !important;
+}
+html:not(.dark) .text-white\/75,
+html:not(.dark) .text-white\/70 {
+  color: #42413b !important;
+}
+html:not(.dark) .text-white\/65,
+html:not(.dark) .text-white\/60 {
+  color: #59574f !important;
+}
+html:not(.dark) .text-white\/50 {
+  color: #706e64 !important;
+}
+html:not(.dark) .text-white\/40 {
+  color: #878478 !important;
+}
+html:not(.dark) .text-white\/30,
+html:not(.dark) .text-white\/25,
+html:not(.dark) .text-white\/20,
+html:not(.dark) .text-white\/15,
+html:not(.dark) .text-white\/10 {
+  color: #9e9a8e !important;
+}
+
+/* Cream typography contrast enforcement in light mode */
+html:not(.dark) .text-cream {
+  color: #121211 !important;
+}
+html:not(.dark) .text-cream\/95,
+html:not(.dark) .text-cream\/90 {
+  color: #1a1a18 !important;
+}
+html:not(.dark) .text-cream\/85,
+html:not(.dark) .text-cream\/80 {
+  color: #2b2b27 !important;
+}
+html:not(.dark) .text-cream\/75,
+html:not(.dark) .text-cream\/70 {
+  color: #3d3c37 !important;
+}
+html:not(.dark) .text-cream\/65,
+html:not(.dark) .text-cream\/60 {
+  color: #4a4842 !important;
+}
+html:not(.dark) .text-cream\/50,
+html:not(.dark) .text-cream\/45,
+html:not(.dark) .text-cream\/40 {
+  color: #5c5952 !important;
+}
+html:not(.dark) .text-cream\/30,
+html:not(.dark) .text-cream\/25,
+html:not(.dark) .text-cream\/20 {
+  color: #737066 !important;
+}
+
+/* Gold badges & borders rich contrast in light mode */
+html:not(.dark) .text-gold {
+  color: #997300 !important;
+}
+html:not(.dark) .border-gold\/40 {
+  border-color: rgba(153, 115, 0, 0.40) !important;
+}
+html:not(.dark) .border-gold\/50 {
+  border-color: rgba(153, 115, 0, 0.55) !important;
+}
+html:not(.dark) .border-gold\/60 {
+  border-color: rgba(153, 115, 0, 0.70) !important;
+}
+html:not(.dark) .bg-gold\/10 {
+  background-color: rgba(153, 115, 0, 0.08) !important;
+}
+html:not(.dark) .bg-gold\/15 {
+  background-color: rgba(153, 115, 0, 0.12) !important;
+}
+
+/* Border light-mode adaptations */
+html:not(.dark) .border-white\/5,
+html:not(.dark) .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.09) !important;
+}
+html:not(.dark) .border-white\/15,
+html:not(.dark) .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+html:not(.dark) .border-white\/25,
+html:not(.dark) .border-white\/30,
+html:not(.dark) .border-white\/35,
+html:not(.dark) .border-white\/40,
+html:not(.dark) .border-white\/50 {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Card surfaces & backgrounds in light mode */
+html:not(.dark) .bg-white\/\[0\.022\],
+html:not(.dark) .bg-white\/\[0\.025\],
+html:not(.dark) .bg-white\/\[0\.03\],
+html:not(.dark) .bg-white\/\[0\.04\],
+html:not(.dark) .bg-white\/5 {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+html:not(.dark) .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+html:not(.dark) .bg-white\/15 {
+  background-color: rgba(0, 0, 0, 0.07) !important;
+}
+html:not(.dark) .bg-white\/20 {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Dark section backgrounds adapt to light ivory in light mode */
+html:not(.dark) .bg-black {
+  background-color: #fbfbfa !important;
+}
+html:not(.dark) .bg-black\/45,
+html:not(.dark) .bg-black\/60,
+html:not(.dark) .bg-black\/70,
+html:not(.dark) .bg-black\/80,
+html:not(.dark) .bg-black\/85,
+html:not(.dark) .bg-black\/90,
+html:not(.dark) .bg-black\/95 {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(20px);
+}
+
+/* Neumorphic card & buttons in light mode */
+html:not(.dark) .neumorphic-card {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.09) !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04) !important;
+}
+html:not(.dark) .neumorphic-btn {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #121211 !important;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Editorial portrait drop-shadow in light mode */
+html:not(.dark) .editorial-portrait {
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.18)) !important;
+}
+
+/* Orbital wheel items in light mode */
+html:not(.dark) .oiw-item {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 12px 35px -6px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* =========================================================================
+   UIVERSE LEARN-MORE BUTTON (by cssbuttons-io) — Adapted for Inquire CTA
+   ========================================================================= */
+button.learn-more,
+a.learn-more {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 10.5rem;
+  height: 2.25rem;
+}
+
+@media (min-width: 1280px) {
+  button.learn-more,
+  a.learn-more {
+    width: 11.5rem;
+  }
+}
+
+button.learn-more .circle,
+a.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: #282936;
+  border-radius: 1.625rem;
+}
+
+.dark button.learn-more .circle,
+.dark a.learn-more .circle {
+  background: #d4af37;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+button.learn-more .circle .icon,
+a.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+.dark button.learn-more .circle .icon,
+.dark a.learn-more .circle .icon {
+  background: #000;
+}
+
+button.learn-more .circle .icon.arrow,
+a.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.55rem;
+  width: 0.95rem;
+  height: 0.125rem;
+  background: none;
+}
+
+button.learn-more .circle .icon.arrow::before,
+a.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.26rem;
+  right: 0.0625rem;
+  width: 0.52rem;
+  height: 0.52rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+
+.dark button.learn-more .circle .icon.arrow::before,
+.dark a.learn-more .circle .icon.arrow::before {
+  border-top: 0.125rem solid #000;
+  border-right: 0.125rem solid #000;
+}
+
+button.learn-more .button-text,
+a.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.45rem 0;
+  margin: 0 0 0 1.65rem;
+  color: #282936;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dark button.learn-more .button-text,
+.dark a.learn-more .button-text {
+  color: #efeee9;
+}
+
+button.learn-more:hover .circle,
+a.learn-more:hover .circle {
+  width: 100%;
+}
+
+.dark button.learn-more:hover .circle,
+.dark a.learn-more:hover .circle {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.55);
+}
+
+button.learn-more:hover .circle .icon.arrow,
+a.learn-more:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(0.85rem, 0);
+}
+
+.dark button.learn-more:hover .circle .icon.arrow,
+.dark a.learn-more:hover .circle .icon.arrow {
+  background: #000;
+  transform: translate(0.85rem, 0);
+}
+
+button.learn-more:hover .button-text,
+a.learn-more:hover .button-text {
+  color: #fff;
+}
+
+.dark button.learn-more:hover .button-text,
+.dark a.learn-more:hover .button-text {
+  color: #000;
+}
+
+/* From Uiverse.io by satyamchaudharydev - Back to Top Button */
+.back-to-top-btn {
+  width: 140px;
+  height: 56px;
+  overflow: hidden;
+  border: none;
+  color: #1a1a1a;
+  background: none;
+  position: relative;
+  padding-bottom: 2em;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.25s ease-out;
+}
+
+.dark .back-to-top-btn {
+  color: #ffffff;
+}
+
+.back-to-top-btn:hover {
+  color: #d4af37;
+}
+
+.dark .back-to-top-btn:hover {
+  color: #d4af37;
+}
+
+.back-to-top-btn > div,
+.back-to-top-btn > svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.back-to-top-btn:before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  background: currentColor;
+  transition: transform 0.25s ease-out;
+}
+
+.back-to-top-btn:hover:before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.back-to-top-btn .clone > *,
+.back-to-top-btn .text > * {
+  opacity: 1;
+  font-size: 1.3rem;
+  transition: 0.2s;
+  margin-left: 4px;
+}
+
+.back-to-top-btn .clone > * {
+  transform: translateY(60px);
+}
+
+.back-to-top-btn:hover .clone > * {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.back-to-top-btn:hover .text > * {
+  opacity: 1;
+  transform: translateY(-60px);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.back-to-top-btn:hover .clone > :nth-child(1) {
+  transition-delay: 0.15s;
+}
+
+.back-to-top-btn:hover .clone > :nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.back-to-top-btn:hover .clone > :nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+.back-to-top-btn:hover .clone > :nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* icon style and hover */
+.back-to-top-btn svg {
+  width: 20px;
+  height: 20px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-50deg);
+  transition: 0.2s ease-out;
+}
+
+.back-to-top-btn:hover svg {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+/* From Uiverse.io by Tsiangana - Resume Download Morphing Button (Refined Luxury Satin Gold) */ 
+.botao {
+  position: relative;
+  width: 108px;
+  height: 38px;
+  border-radius: 19px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  padding: 0 12px;
+  background: linear-gradient(145deg, #a67c19 0%, #c49a26 50%, #8c6713 100%);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  cursor: pointer;
+  transition: all .35s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.botao .mysvg {
+  display: none;
+  width: 16px;
+  height: 16px;
+  color: #fff;
+}
+
+.botao:hover {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 0;
+  background: linear-gradient(145deg, #c49a26 0%, #a67c19 100%);
+  border-color: rgba(212, 175, 55, 0.65);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), 0 0 10px rgba(212, 175, 55, 0.25);
+  transition: all .35s ease;
+}
+
+.botao:hover .texto {
+  display: none;
+}
+
+.botao:hover .mysvg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao:hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border: 2px solid transparent;
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+  border-right: 2px solid #d4af37;
+  border-radius: 50%;
+  animation: animateC 2s linear infinite;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+@keyframes animateC {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile Responsive Sizing for Navbar Actions (Phone View) */
+@media (max-width: 639px) {
+  .botao,
+  .inquire-btn,
+  .btn {
+    width: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+    height: 28px !important;
+    border-radius: 9999px !important;
+    padding: 0 !important;
+    font-size: 10px !important;
+    letter-spacing: 0.04em !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .botao .texto {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: 100%;
+  }
+
+  .botao:hover {
+    width: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+    height: 28px !important;
+    border-radius: 9999px !important;
+    padding: 0 !important;
+  }
+
+  .botao:hover .texto {
+    display: inline-flex !important;
+  }
+
+  .botao:hover .mysvg {
+    display: none !important;
+  }
+
+  .botao:hover::before {
+    display: none !important;
+  }
+
+  .inquire-btn,
+  .btn {
+    border-width: 1px;
+  }
+
+  .botao:active,
+  .inquire-btn:active,
+  .btn:active {
+    transform: scale(0.96);
+  }
+
+  /* Compact Hero Specializations & Explore Button on Phone View */
+  .hero-spec-pill {
+    padding: 3px 8px !important;
+    font-size: 8.5px !important;
+    line-height: 1.1 !important;
+    gap: 4px !important;
+  }
+
+  .hero-spec-pill span {
+    font-size: 8.5px !important;
+  }
+
+  .hero-explore-btn {
+    padding: 5px 14px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.14em !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .botao,
+  .inquire-btn,
+  .btn {
+    width: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    height: 26px !important;
+    padding: 0 !important;
+    font-size: 9.5px !important;
+    border-radius: 9999px !important;
+  }
+
+  .botao:hover {
+    width: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    height: 26px !important;
+    border-radius: 9999px !important;
+    padding: 0 !important;
+  }
+
+  .hero-spec-pill {
+    padding: 2.5px 7px !important;
+    font-size: 8px !important;
+    gap: 3px !important;
+  }
+
+  .hero-spec-pill span {
+    font-size: 8px !important;
+  }
+
+  .hero-explore-btn {
+    padding: 4px 12px !important;
+    font-size: 8.5px !important;
+  }
+}
+
+/* Eliminate ghost hover drawer distance between cards on mobile/touch screens */
+@media (max-width: 767px) {
+  .hover-feature-card-drawer {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+/* =========================================================================
+   CINEMATIC EDITORIAL BOOT LOADER — Silky Smooth GPU-Accelerated Entrance
+   ========================================================================= */
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0 0.35em;
+  min-height: 90px;
+  height: auto;
+  width: auto;
+  max-width: 95vw;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 5vw, 3.8rem);
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  user-select: none;
+  color: #fbfbfa;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .loader-wrapper {
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-wrapper {
+    font-size: clamp(1.15rem, 4.8vw, 1.55rem);
+    letter-spacing: 0.08em;
+    padding: 0 0.5rem;
+    gap: 0 0.25em;
+  }
+}
+
+.loader-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: boot-letter-glide 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+  white-space: pre;
+}
+
+@keyframes boot-letter-glide {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(0.92);
+    filter: blur(8px);
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(0, -2px, 0) scale(1.05);
+    filter: blur(0px);
+    color: #ffffff;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.95), 0 0 26px rgba(212, 175, 55, 0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0px);
+    color: #fbfbfa;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.35);
+  }
+}
+
+/* Subtle continuous ambient breathing once revealed */
+.loader-ambient-glow {
+  animation: boot-ambient-breathe 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes boot-ambient-breathe {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.2));
+  }
+  100% {
+    filter: drop-shadow(0 0 22px rgba(212, 175, 55, 0.45));
+  }
+}
+
+/* Luxury golden laser streak beneath text */
+.loader-laser-line {
+  position: absolute;
+  bottom: -6px;
+  left: 10%;
+  right: 10%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.6) 20%, #ffffff 50%, rgba(212, 175, 55, 0.6) 80%, transparent 100%);
+  animation: boot-laser-sweep 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: center;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+}
+
+@keyframes boot-laser-sweep {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.85;
+  }
+}
+
+/* GPU-accelerated smooth progress bar */
+@keyframes bootProgress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* From Uiverse.io by GreyD097 - Certificate Deck 1-4 Controller */ 
+.button-box {
+  position: relative;
+  width: 12rem;
+  height: 4.8rem;
+  display: flex;
+  user-select: none;
+}
+
+.button-box .button {
+  width: 3.2rem;
+  height: 3.2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, box-shadow 0.3s ease;
+  opacity: 0.9;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+.button-box .button .icon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.85;
+  transition: 0.25s;
+}
+
+/* 4th child: Left button (Previous) */
+.button-box .button:nth-child(4) {
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: 30;
+  background: #1f1b13;
+  background: linear-gradient(135deg, #181510 0%, #2a2012 100%);
+  border: 2.5px solid rgba(212, 175, 55, 0.55);
+  color: #d4af37;
+}
+
+.dark .button-box .button:nth-child(4) {
+  background: linear-gradient(135deg, #12100b 0%, #241d0e 100%);
+  border: 2.5px solid rgba(212, 175, 55, 0.7);
+  color: #f7e7a8;
+}
+
+/* 5th child: Right button (Next) */
+.button-box .button:nth-child(5) {
+  transform: translate(-50%, -50%) rotate(-115deg);
+  z-index: 40;
+  background: #1f1b13;
+  background: linear-gradient(135deg, #181510 0%, #2a2012 100%);
+  border: 2.5px solid rgba(212, 175, 55, 0.55);
+  color: #d4af37;
+}
+
+.dark .button-box .button:nth-child(5) {
+  background: linear-gradient(135deg, #12100b 0%, #241d0e 100%);
+  border: 2.5px solid rgba(212, 175, 55, 0.7);
+  color: #f7e7a8;
+}
+
+/* 6th child: Center button (Deck Indicator 1 - 4) */
+.button-box .button:nth-child(6) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 50;
+  background: #d4af37;
+  background: linear-gradient(145deg, #8a6510 0%, #d4af37 60%, #f7e7a8 100%);
+  border: 2.5px solid #ffffff;
+  color: #0b0904;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.dark .button-box .button:nth-child(6) {
+  background: linear-gradient(145deg, #8a6510 0%, #d4af37 60%, #f7e7a8 100%);
+  border: 2.5px solid #f7e7a8;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Touch areas */
+.button-box .touch {
+  position: relative;
+  z-index: 60;
+  height: 100%;
+  flex: 1;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Touch Left Hover & Active */
+.button-box .touch.left:hover ~ .button:nth-child(4) {
+  opacity: 1;
+  transform: translate(-170%, -50%) rotate(-90deg) scale(1.08);
+  border-color: #d4af37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.button-box .touch.left:hover ~ .button:nth-child(4) .icon {
+  width: 25px;
+  height: 25px;
+  opacity: 1;
+}
+
+.button-box .touch.left:active ~ .button:nth-child(4) {
+  transform: translate(-170%, -50%) rotate(-90deg) scale(0.92);
+}
+
+/* Touch Right Hover & Active */
+.button-box .touch.right:hover ~ .button:nth-child(5) {
+  opacity: 1;
+  transform: translate(70%, -50%) rotate(90deg) scale(1.08);
+  border-color: #d4af37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.button-box .touch.right:hover ~ .button:nth-child(5) .icon {
+  width: 25px;
+  height: 25px;
+  opacity: 1;
+}
+
+.button-box .touch.right:active ~ .button:nth-child(5) {
+  transform: translate(70%, -50%) rotate(90deg) scale(0.92);
+}
+
+/* Touch Middle Hover & Active */
+.button-box .touch.middle:hover ~ .button:nth-child(6) {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1.08);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.85);
+}
+
+.button-box .touch.middle:hover ~ .button:nth-child(6) .icon {
+  width: 25px;
+  height: 25px;
+  opacity: 1;
+}
+
+.button-box .touch.middle:active ~ .button:nth-child(6) {
+  transform: translate(-50%, -50%) rotate(0deg) scale(0.92);
+}
+
+/* General box hover fan-out */
+.button-box:hover .button:nth-child(4) {
+  transform: translate(-170%, -50%) rotate(-90deg);
+  opacity: 0.95;
+}
+
+.button-box:hover .button:nth-child(5) {
+  transform: translate(70%, -50%) rotate(90deg);
+  opacity: 0.95;
+}
+
+.button-box:hover .button:nth-child(6) {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.button-box:hover .button:nth-child(6) .icon {
+  animation: active 4s linear infinite;
+}
+
+@keyframes active {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================================
+   From Uiverse.io by joe-watson-sbf - Inquire CTA Button
+   Adapted with perfect sizing (38px height, 12.5px font-size) to align
+   seamlessly with the navbar buttons and Resume action.
+   ========================================================================= */
+.inquire-btn,
+.btn {
+  position: relative;
+  width: 108px;
+  height: 38px;
+  padding: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #18181b;
+  background: rgba(212, 175, 55, 0.05);
+  border: 1.5px solid rgba(190, 145, 25, 0.65);
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: color 0.5s ease, border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  isolation: isolate;
+}
+
+.dark .inquire-btn,
+.dark .btn {
+  color: #ffedd3;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.inquire-btn span,
+.btn span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s ease;
+}
+
+.inquire-btn::before,
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffc506;
+  transition: width 0.5s ease;
+  z-index: 3;
+}
+
+.inquire-btn:hover,
+.btn:hover {
+  color: #1e1e2b;
+  border-color: #ffc506;
+  box-shadow: 0 0 14px rgba(255, 197, 6, 0.28);
+  transition-delay: 0.5s;
+}
+
+.inquire-btn:hover span,
+.btn:hover span {
+  color: #1e1e2b;
+  transition-delay: 0.5s;
+}
+
+.inquire-btn:hover::before,
+.btn:hover::before {
+  width: 100%;
+}
+
+.inquire-btn::after,
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #ffc506;
+  transition: height 0.4s ease;
+  z-index: 1;
+}
+
+.inquire-btn:hover::after,
+.btn:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: aliceblue;
+}
+
+/* =========================================================================
+   Luxury 3D Perspective Project Card Slide Deck
+   Features compact cards, upright typography, smooth 3D stage depth, and responsive touch
+   ========================================================================= */
+.project-slide-stage {
+  perspective: 1200px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 16px 0;
+}
+
+.project-slide-track {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-slide-card {
+  position: absolute;
+  width: 330px;
+  max-width: calc(100vw - 48px);
+  height: 440px;
+  border-radius: 20px;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  user-select: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  box-sizing: border-box;
+}
+
+/* Card theming in Dark Mode */
+html.dark .project-slide-card {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.95);
+}
+
+html.dark .project-slide-card.is-active {
+  background: #131313;
+  border-color: rgba(212, 175, 55, 0.75);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.95),
+              0 0 30px rgba(212, 175, 55, 0.22);
+}
+
+/* Card theming in Light Mode */
+html:not(.dark) .project-slide-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.12);
+}
+
+html:not(.dark) .project-slide-card.is-active {
+  background: #ffffff;
+  border-color: rgba(166, 124, 0, 0.65);
+  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.18),
+              0 0 25px rgba(166, 124, 0, 0.20);
+}
+
+/* 3D Depth Positioning based on data-offset */
+.project-slide-card[data-offset="0"] {
+  transform: translateX(0) scale(1) translateZ(40px);
+  opacity: 1;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.project-slide-card[data-offset="1"] {
+  transform: translateX(calc(100% + 24px)) scale(0.88) rotateY(-12deg) translateZ(0);
+  opacity: 0.65;
+  z-index: 20;
+}
+
+.project-slide-card[data-offset="-1"] {
+  transform: translateX(calc(-100% - 24px)) scale(0.88) rotateY(12deg) translateZ(0);
+  opacity: 0.65;
+  z-index: 20;
+}
+
+.project-slide-card[data-offset="2"] {
+  transform: translateX(calc(185% + 36px)) scale(0.76) rotateY(-20deg) translateZ(-40px);
+  opacity: 0.28;
+  z-index: 10;
+}
+
+.project-slide-card[data-offset="-2"] {
+  transform: translateX(calc(-185% - 36px)) scale(0.76) rotateY(20deg) translateZ(-40px);
+  opacity: 0.28;
+  z-index: 10;
+}
+
+.project-slide-card[data-offset="hidden-left"] {
+  transform: translateX(-260%) scale(0.65) translateZ(-80px);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-slide-card[data-offset="hidden-right"] {
+  transform: translateX(260%) scale(0.65) translateZ(-80px);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .project-slide-track {
+    height: 420px;
+  }
+  .project-slide-card {
+    width: 295px;
+    height: 400px;
+  }
+  .project-slide-card[data-offset="1"] {
+    transform: translateX(82%) scale(0.84) translateZ(0);
+    opacity: 0.35;
+  }
+  .project-slide-card[data-offset="-1"] {
+    transform: translateX(-82%) scale(0.84) translateZ(0);
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-slide-stage {
+    padding: 8px 0;
+  }
+  .project-slide-track {
+    height: 350px;
+  }
+  .project-slide-card {
+    width: min(290px, calc(100vw - 36px));
+    height: 340px;
+    border-radius: 18px;
+    padding: 14px 16px !important;
+  }
+  .project-slide-card[data-offset="1"] {
+    transform: translateX(82%) scale(0.82) translateZ(0);
+    opacity: 0.25;
+  }
+  .project-slide-card[data-offset="-1"] {
+    transform: translateX(-82%) scale(0.82) translateZ(0);
+    opacity: 0.25;
+  }
+  .project-slide-card[data-offset="2"],
+  .project-slide-card[data-offset="-2"] {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .project-slide-track {
+    height: 340px;
+  }
+  .project-slide-card {
+    width: min(275px, calc(100vw - 28px));
+    height: 330px;
+    padding: 12px 14px !important;
+  }
+}
+
+/* =========================================================================
+   From Uiverse.io by junaid_3671 - 3D Dossier Folder Component
+   Adapted for Experience & Leadership Section (10 / Leadership & Industry)
+   ========================================================================= */
+:root {
+  --folder-back-fill: #ece9e2;
+  --folder-back-inset-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.08), 0 14px 28px rgba(0, 0, 0, 0.08);
+  --folder-flap-fill: #ffffff;
+  --folder-flap-fill-opacity: 0.85;
+  --folder-flap-stroke: rgba(184, 134, 11, 0.35);
+  --folder-card-fill: #ffffff;
+  --folder-card-stroke: rgba(0, 0, 0, 0.1);
+  --folder-card-line-fill: #b8860b;
+
+  --base-w: 321px;
+  --base-h: 270px;
+}
+
+.dark {
+  --folder-back-fill: #0c0c0c;
+  --folder-back-inset-shadow: inset 0 0 12px 2px rgba(212, 175, 55, 0.18), 0 18px 36px rgba(0, 0, 0, 0.85);
+  --folder-flap-fill: #181818;
+  --folder-flap-fill-opacity: 0.72;
+  --folder-flap-stroke: rgba(212, 175, 55, 0.45);
+  --folder-card-fill: #141414;
+  --folder-card-stroke: rgba(255, 255, 255, 0.12);
+  --folder-card-line-fill: #d4af37;
+}
+
+.folder {
+  position: relative;
+  width: var(--base-w);
+  height: var(--base-h);
+  display: block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 385px) {
+  .folder {
+    transform: scale(0.86);
+    transform-origin: center center;
+    margin-top: -14px;
+    margin-bottom: -14px;
+  }
+}
+
+@media (max-width: 335px) {
+  .folder {
+    transform: scale(0.76);
+    transform-origin: center center;
+    margin-top: -24px;
+    margin-bottom: -24px;
+  }
+}
+
+.folder-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.folder-stage {
+  position: absolute;
+  inset: 0;
+  perspective: 800px;
+}
+
+.folder-back {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--base-w);
+  height: var(--base-h);
+  border-radius: 25px;
+  background-color: var(--folder-back-fill);
+  box-shadow: var(--folder-back-inset-shadow);
+  border: 1px solid var(--folder-flap-stroke);
+  overflow: hidden;
+}
+
+.cards {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+}
+
+.card-1 {
+  transform: translate(-50%, -50%) translate(40px, -10px) rotate(10deg);
+}
+.card-2 {
+  transform: translate(-50%, -50%) translate(3px, -20px) rotate(2deg);
+  transition-delay: 0.02s;
+}
+.card-3 {
+  transform: translate(-50%, -50%) translate(-40px, -22px) rotate(-5deg);
+}
+
+.folder:hover .card-1 {
+  transform: translate(-50%, -50%) translate(40px, -30px) rotate(14deg);
+  transition-delay: 0.12s;
+}
+
+.folder:hover .card-2 {
+  transform: translate(-50%, -50%) translate(3px, -35px) rotate(-1deg);
+  transition-delay: 0.06s;
+}
+
+.folder:hover .card-3 {
+  transform: translate(-50%, -50%) translate(-40px, -44px) rotate(-9deg);
+  transition-delay: 0s;
+}
+
+.folder-toggle:checked ~ .folder-stage .cards {
+  z-index: 10;
+}
+
+.folder-toggle:checked ~ .folder-stage .card-1 {
+  transform: translate(-50%, -50%) translate(70px, -160px) rotate(18deg);
+  transition-delay: 0.1s;
+}
+
+.folder-toggle:checked ~ .folder-stage .card-2 {
+  transform: translate(-50%, -50%) translate(0px, -180px) rotate(-3deg);
+  transition-delay: 0.05s;
+}
+
+.folder-toggle:checked ~ .folder-stage .card-3 {
+  transform: translate(-50%, -50%) translate(-65px, -170px) rotate(-14deg);
+  transition-delay: 0s;
+}
+
+.flap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 16px;
+  width: 321px;
+  height: 241px;
+  transform: translate(-50%, -50%) rotateX(-15deg);
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  z-index: 3;
+}
+
+.folder:hover .flap {
+  transform: translate(-50%, -50%) rotateX(-45deg);
+}
+
+.folder-toggle:checked ~ .folder-stage .flap {
+  transform: translate(-50%, -50%) rotateX(-55deg);
+  pointer-events: none;
+}
+
+.flap-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  clip-path: path(
+    "M0 25C0 11.1929 11.1929 0 25 0H136.084C143.044 0 149.689 2.90139 154.42 8.00608L178.08 33.5343C182.811 38.639 189.456 41.5404 196.416 41.5404H296C309.807 41.5404 321 52.7333 321 66.5404V216C321 229.807 309.807 241 296 241H25C11.1929 241 0 229.807 0 216V25Z"
+  );
+  -webkit-clip-path: path(
+    "M0 25C0 11.1929 11.1929 0 25 0H136.084C143.044 0 149.689 2.90139 154.42 8.00608L178.08 33.5343C182.811 38.639 189.456 41.5404 196.416 41.5404H296C309.807 41.5404 321 52.7333 321 66.5404V216C321 229.807 309.807 241 296 241H25C11.1929 241 0 229.807 0 216V25Z"
+  );
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flap > svg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .flap {
+    transition: none;
+  }
+}
+
+/* =========================================================================
+   Uiverse.io by Uncannypotato69 Circle Expand Card Styles
+   ========================================================================= */
+.uiverse-skill-card {
+  transform: translateZ(0);
+}
+
+.uiverse-skill-card .circle-ripple {
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+}
+
+.uiverse-skill-card:hover .circle-ripple,
+.uiverse-skill-card:focus-visible .circle-ripple {
+  transform: scale(18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uiverse-skill-card .circle-ripple {
+    transition: none;
+  }
+}
