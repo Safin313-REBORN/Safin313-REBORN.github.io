@@ -9,7 +9,12 @@
     <image:image>
       <image:loc>https://safin313-reborn.github.io/assets/saharia-safin.jpg</image:loc>
       <image:title>Saharia Hassan Safin — Full-Stack Architect and Embedded Systems Engineer</image:title>
-      <image:caption>Official portrait of Saharia Hassan Safin</image:caption>
+      <image:caption>Official studio portrait of Saharia Hassan Safin</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://safin313-reborn.github.io/assets/saharia-safin-dark.jpg</image:loc>
+      <image:title>Saharia Hassan Safin — Executive Portrait</image:title>
+      <image:caption>Executive portrait of Saharia Hassan Safin in dark attire</image:caption>
     </image:image>
   </url>
 </urlset>
