@@ -879,6 +879,52 @@ export const CARD_DETAILS: Record<string, CardDetail> = {
     tags: ['BNCC', 'Lance Corporal', 'Leadership', 'Disaster Management', 'Fire Fighting', 'Discipline']
   },
 
+  'cert-diu-sustainable-project': {
+    id: 'cert-diu-sustainable-project',
+    title: 'Sustainable Project Competition 2026 — Certificate of Participation',
+    category: 'Competition & Sustainability Credential',
+    badge: 'Sustainable Innovation',
+    subtitle: 'Daffodil International University (Sustainability Wing & DIU GEC)',
+    dateOrRank: '14 October 2026',
+    description: 'Awarded official Certificate of Participation for actively competing in the Sustainable Project Competition 2026 held at Daffodil International University on 14 October 2026. Recognized for architecting and presenting tech-driven sustainable project solutions aligned with the United Nations Sustainable Development Goals (SDGs).',
+    highlights: [
+      'Successfully competed in the intra-university Sustainable Project Competition 2026 organized by DIU Sustainability Wing & DIU Green Earth Club (DIU GEC).',
+      'Demonstrated applied engineering integration combining sustainable hardware/software concepts to address real-world environmental and ecological challenges.',
+      'Presented project architecture and operational prototypes before university evaluation panels and industry judges.',
+      'Validated commitment to sustainable computing, energy-efficient IoT telemetry, and green tech initiatives.'
+    ],
+    metrics: [
+      { label: 'Event', value: 'Project Competition', helper: 'Sustainable Innovation 2026' },
+      { label: 'Organizer', value: 'DIU Sustainability', helper: 'Sustainability Wing & DIU GEC' },
+      { label: 'Date', value: '14 October 2026', helper: 'Official event date' },
+      { label: 'Focus', value: 'Green Tech & SDGs', helper: 'Sustainable development solutions' }
+    ],
+    tags: ['Sustainable Development Goals', 'Green Tech', 'Project Competition', 'DIU', 'IoT & Sustainability', 'Innovation']
+  },
+
+  'cert-diu-youth-solutions-lab': {
+    id: 'cert-diu-youth-solutions-lab',
+    title: 'DIU HRDI — Youth Solutions Lab 2026 Certificate of Participation',
+    category: 'Leadership & Innovation Credential',
+    badge: 'Social Innovation',
+    subtitle: 'SkillUp Club · Human Resource Development Institute (HRDI), DIU',
+    dateOrRank: '12 August 2026',
+    description: 'Awarded official Certificate of Participation (Ref: youth/hrdi/s/2026/diu/015) for successfully participating in the Youth Solutions Lab 2026, organized by the SkillUp Club of the Human Resource Development Institute (HRDI) at Daffodil International University. The program was centered on the theme "Different Contexts, Common Aspirations," engaging youth in transformative discussions, team hack rounds, and strategic problem-solving for community and global challenges.',
+    highlights: [
+      'Actively participated in the youth leadership and innovation incubator organized by DIU HRDI SkillUp Club.',
+      'Collaborated with interdisciplinary teams under the theme "Different Contexts, Common Aspirations" to ideate practical social solutions.',
+      'Engaged in fast-paced problem formulation, stakeholder empathy modeling, and youth action frameworks.',
+      'Officially endorsed with credential identifier youth/hrdi/s/2026/diu/015 signed by HRDI Directorate.'
+    ],
+    metrics: [
+      { label: 'Event', value: 'Solutions Lab', helper: 'Youth Solutions Lab 2026' },
+      { label: 'Organizer', value: 'HRDI SkillUp', helper: 'Human Resource Dev. Institute' },
+      { label: 'Credential ID', value: 'diu/015', helper: 'Ref: youth/hrdi/s/2026/diu/015' },
+      { label: 'Theme', value: 'Aspirations', helper: 'Different Contexts, Common Aspirations' }
+    ],
+    tags: ['Youth Solutions Lab', 'DIU HRDI', 'SkillUp Club', 'Leadership', 'Social Innovation', 'Youth Empowerment']
+  },
+
   // ----------------------------------------------------
   // SECTION 08: LEADERSHIP, CLUBS & EXPERIENCE
   // ----------------------------------------------------

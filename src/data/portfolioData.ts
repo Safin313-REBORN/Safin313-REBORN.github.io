@@ -600,6 +600,24 @@ export const CERTIFICATES: CertificateItem[] = [
     detailId: 'achieve-titas-leadership',
     topics: ['Executive AI Transformation', 'Departmental Organization Support', 'Institutional Recognition', 'Dr. Sheak Rashed Haider Noori'],
   },
+  {
+    id: 'c9',
+    title: 'Daffodil International University — Sustainable Project Competition 2026',
+    issuer: 'DIU Sustainability Wing & DIU GEC',
+    date: '14 October 2026',
+    category: 'Institutional',
+    detailId: 'cert-diu-sustainable-project',
+    topics: ['Sustainable Development Goals (SDGs)', 'Green Engineering Prototypes', 'Project Competition Showcase', 'Mohammad Monir Hossain'],
+  },
+  {
+    id: 'c10',
+    title: 'DIU HRDI — Youth Solutions Lab 2026',
+    issuer: 'DIU HRDI & SkillUp Club',
+    date: '12 August 2026',
+    category: 'Institutional',
+    detailId: 'cert-diu-youth-solutions-lab',
+    topics: ['Different Contexts Common Aspirations', 'Social Innovation Incubator', 'SkillUp Club Leadership', 'Ref youth/hrdi/s/2026/diu/015'],
+  },
 ];
 
 // --------------------------------------------------------------------------
